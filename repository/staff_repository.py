@@ -17,8 +17,7 @@ class StaffRepository:
 
     def save(self, staff):
         self.connect()
-        self.cursor.execute("insert into staffs (full_name, father_name, national_code, personal_id_no, degree, birth_date, age, phone_number,
-                 address, username, password, ward, role) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        self.cursor.execute("insert into staffs (full_name, father_name, national_code, personal_id_no, degree, birth_date, age, phone_number,address, username, password, ward, role) values (?,?,?,?,?,?,?,?,?,?,?,?,?)",
                             [staff.full_name, staff.father_name, staff.national_code, staff.personal_id_no, staff.degree, staff.birth_date, staff.age, staff.phone_number,
                  staff.address, staff.username, staff.password, staff.ward, staff.role])
         staff.id = self.cursor.lastrowid
@@ -27,8 +26,7 @@ class StaffRepository:
 
     def update(self, staff):
         self.connect()
-        self.cursor.execute("update staffs set full_name=?, father_name=?, national_code=?, personal_id_no=?, degree=?, birth_date=?, age=?, phone_number=?,
-                 address=?, username=?, password=?, ward=?, role=?  where staff_id=?",
+        self.cursor.execute("update staffs set full_name=?, father_name=?, national_code=?, personal_id_no=?, degree=?, birth_date=?, age=?, phone_number=?,address=?, username=?, password=?, ward=?, role=?  where staff_id=?",
                             [staff.staff_id,staff.full_name, staff.father_name, staff.national_code, staff.personal_id_no, staff.degree, staff.birth_date, staff.age, staff.phone_number,
                  staff.address, staff.username, staff.password, staff.ward, staff.role])
         self.connection.commit()

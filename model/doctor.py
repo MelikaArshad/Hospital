@@ -26,10 +26,10 @@ class Doctor:
         degree_validate(self.degree)
         birth_date_validate(self.birth_date)
         age_validate(self.age)
-        address(salf.address)
-        phone_number(self.phone_number)
-        username(self.username)
-        password(self.password)
+        address_validate(self.address)
+        phone_number_validate(self.phone_number)
+        username_validate(self.username)
+        password_validate(self.password)
 
     def __repr__(self):
             return f"{self.__dict__}"

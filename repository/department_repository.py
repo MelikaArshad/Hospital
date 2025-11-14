@@ -48,7 +48,7 @@ class DepartmentRepository:
     def find_by_id(self, department_id):
         self.connect()
         self.cursor.execute("select * from departments where department_id=?", [department_id])
-        bank = self.cursor.fetchone()
+        department = self.cursor.fetchone()
         self.disconnect()
         if department:
             return Department(*department)

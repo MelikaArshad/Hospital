@@ -17,9 +17,7 @@ class DoctorRepository:
 
     def save(self, doctor):
         self.connect()
-        self.cursor.execute(
-            "insert into banks (full_name ,department_controller,father_name, national_code, personal_id_no, degree, birth_date, age,
-         phone_number, address, username, password) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        self.cursor.execute("insert into banks (full_name ,department_controller,father_name, national_code, personal_id_no, degree, birth_date, age,phone_number, address, username, password) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
          [doctor.full_name, doctor.department_controller, doctor.father_name, doctor.national_code,
           doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,
           doctor.phone_number, doctor.address, doctor.username, doctor.password])
@@ -29,13 +27,8 @@ class DoctorRepository:
 
     def update(self, doctor ):
         self.connect()
-        self.cursor.execute(
-            "update doctors set full_name=? ,department_controller=?,father_name=?, national_code=?, personal_id_no=?, degree=?, birth_date=?, age=?,
-        phone_number =?, address =?, username =?, password =? where
-        doctor_id =?",
-        [
-            doctor.doctor_id, doctor.full_name, doctor.department_controller, doctor.father_name, doctor.national_code, doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,
-            doctor.phone_number, doctor.address, doctor.username, doctor.password])
+        self.cursor.execute("update doctors set full_name=? ,department_controller=?,father_name=?, national_code=?, personal_id_no=?, degree=?, birth_date=?, age=?,phone_number =?, address =?, username =?, password =? where doctor_id =?",
+        [doctor.doctor_id, doctor.full_name, doctor.department_controller, doctor.father_name, doctor.national_code, doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,doctor.phone_number, doctor.address, doctor.username, doctor.password])
         self.connection.commit()
         self.disconnect()
         return doctor

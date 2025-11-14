@@ -1,4 +1,4 @@
 from controller.staff_controller import StaffController
-from controller.department_contoroller import DepartmentContoroller
+from controller.department_contoroller import DepartmentController
 from controller.doctor_controller import DoctorController
 from controller.patient_controller import PatientController

@@ -21,7 +21,6 @@ class Patient:
         self.notes_text = notes_text
 
     def validate(self):
-        unit_no_validator(self.unit_no)
         full_name_validator(self.full_name)
         father_name_validator(self.father_name)
         national_code_validator(self.national_code)
@@ -30,7 +29,7 @@ class Patient:
         phone_number_validator(self.phone_number)
         height_validator(self.height)
         weight_validator(self.weight)
-        attending_physician(self.attending_physician)
+        attending_physician_validator(self.attending_physician)
         kind_of_ad_validator(self.kind_of_ad)
         date_of_admission_validator(self.date_of_admission)
         ward_validator(self.ward)

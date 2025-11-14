@@ -17,8 +17,7 @@ class PatientRepository:
 
     def save(self, patient):
         self.connect()
-        self.cursor.execute("insert into patients (full_name, father_name, national_code, birth_date,phone_number, age, height, weight,
-                 attending_physician, kind_of_ad, date_of_admission, ward, room, bed, notes_text) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        self.cursor.execute("insert into patients (full_name, father_name, national_code, birth_date,phone_number, age, height, weight,attending_physician, kind_of_ad, date_of_admission, ward, room, bed, notes_text) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                             [patient.full_name, patient.father_name, patient.national_code, patient.birth_date,patient.phone_number, patient.age, patient.height, patient.weight,
                  patient.attending_physician, patient.kind_of_ad, patient.date_of_admission, patient.ward, patient.room,patient.bed, patient.notes_text])
         patient.id = self.cursor.lastrowid
@@ -27,8 +26,7 @@ class PatientRepository:
 
     def update(self, patient):
         self.connect()
-        self.cursor.execute("update patients set full_name=?, father_name=?, national_code=?, birth_date=?,phone_number=?, age=?, height=?, weight=?,
-                 attending_physician=?, kind_of_ad=?, date_of_admission=?, ward=?, room=?, bed=?, notes_text=? where id=?",
+        self.cursor.execute("update patients set full_name=?, father_name=?, national_code=?, birth_date=?,phone_number=?, age=?, height=?, weight=?,attending_physician=?, kind_of_ad=?, date_of_admission=?, ward=?, room=?, bed=?, notes_text=? where id=?",
                             [patient.unit_no,patient.full_name, patient.father_name, patient.national_code, patient.birth_date,patient.phone_number, patient.age, patient.height, patient.weight,
                  patient.attending_physician, patient.kind_of_ad, patient.date_of_admission, patient.ward, patient.room,patient.bed, patient.notes_text ])
         self.connection.commit()

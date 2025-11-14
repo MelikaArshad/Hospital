@@ -57,28 +57,28 @@ def age_validate(age):
         return age
 
 
-def address(address):
+def address_validate(address):
     if not (type(address) == str and re.match(r"^[\w,\-]{3,100}$", address)):
         raise ValueError("Invalid address !!!")
     else:
         return address
 
 
-def username(username):
+def username_validate(username):
     if not (type(username) == str and re.match(r"^[a-zA-Z\s]*$", username)):
         raise ValueError("Invalid Username !!!")
     else:
         return username
 
 
-def password(password):
+def password_validate(password):
     if not (type(password) == str and re.match(r"^[a-zA-Z\s]*$", password)):
         raise ValueError("Invalid Password !!!")
     else:
         return password
 
 
-def phone_number_validator(phone_number):
+def phone_number_validate(phone_number):
     if not (type(phone_number) == str and re.match(r"^(09|\+989)\d{9}$", phone_number)):
         raise ValueError("Invalid phone_number !!!")
     else:
