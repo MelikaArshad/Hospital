@@ -1,11 +1,5 @@
 import re
 
-def personal_id_no_validate(personal_id_no):
-    if not (type(personal_id_no) == int and personal_id_no > 0):
-        raise ValueError("Invalid Personal Id No!!!")
-    else:
-        return personal_id_no
-
 
 def degree_validate(degree):
     if not (type(degree) == str and re.match(r"^[a-zA-Z\s]{3,40}$", degree)):
@@ -57,7 +51,7 @@ def phone_number_validator(phone_number):
 
 def full_name_validate(full_name):
     if not (type(full_name) == str and re.match(r"^[a-zA-Z\s]{3,30}$", full_name)):
-        raise ValueError("Invalid full_name !!!")
+        raise ValueError("Invalid full name !!!")
     else:
         return full_name
 
@@ -75,18 +69,58 @@ def national_code_validate(national_code):
 
 
 def notes_text_validator(notes_text):
-    if not (type(notes_text) == str and re.match(r"^[a-zA-Z\s\d\"\'!?.,:;]{0,30}$", notes_text)):
+    if not (type(notes_text) == str and re.match(r"^[a-zA-Z\s\d\"\'!?.,:;]$", notes_text)):
         raise ValueError("Invalid notes text !!!")
     else:
         return notes_text
 
-        height_validator(self.height)
-        weight_validator(self.weight)
-        attending_physician(self.attending_physician)
-        kind_of_ad_validator(self.kind_of_ad)
-        date_of_admission_validator(self.date_of_admission)
-        ward_validator(self.ward)
-        room_validator(self.room)
-        bed_validator(self.bed)
+def height_validate(height):
+    if not (type(height) == int and height > 0):
+        raise ValueError("Invalid height!!!")
+    else:
+        return height
+
+def weight_validate(weight):
+    if not (type(weight) == int and weight > 0):
+        raise ValueError("Invalid weight!!!")
+    else:
+        return weight
+
+def date_of_admission_validate(date_of_admission):
+    if not (type(date_of_admission) == str and re.match(r"^\d{2}[/-]\d{2}[/-]\d{4}\s\d{2}:\d{2}(:\d{2})$", date_of_admission)):
+        raise ValueError("Invalid date of admission !!!")
+    else:
+        return date_of_admission
+
+def attending_physician(attending_physician):
+    if not (type(attending_physician) == str and re.match(r"^[a-zA-Z\s]{3,30}$", attending_physician)):
+        raise ValueError("Invalid attending physician !!!")
+    else:
+        return attending_physician
+
+def kind_of_ad_validate(kind_of_ad):
+    if not (type(kind_of_ad) == str and re.match(r"^[a-zA-Z\s]{3,30}$", kind_of_ad)):
+        raise ValueError("Invalid kind of ad !!!")
+    else:
+        return kind_of_ad
+
+def room_validate(room):
+    if not (type(room) == int and room > 0):
+        raise ValueError("Invalid room!!!")
+    else:
+        return room
+
+def bed_validate(bed):
+    if not (type(bed) == int and bed > 0):
+         raise ValueError("Invalid bed!!!")
+    else:
+        return bed
+
+def ward_validate(ward):
+    if not (type(ward) == str and re.match(r"^[a-zA-Z\s]{3,20}$", ward)):
+        raise ValueError("Invalid ward !!!")
+    else:
+        return ward
+
 
 

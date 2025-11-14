@@ -1,0 +1,4 @@
+from service.department_service import DepartmentService
+from service.doctor_service import DoctorService
+from service.patient_service import StaffService
+from service.staff_service import PatientService
