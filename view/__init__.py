@@ -10,3 +10,4 @@ from view.doctor_veiw import DoctorVeiw
 from view.department_veiw import DepartmentVeiw
 from view.staff_veiw import StaffVeiw
 from view.patient_veiw import PatientVeiw
+from view.medical_record_veiw import MedicalRecordview
