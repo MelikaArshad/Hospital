@@ -1,5 +1,5 @@
 from model import Staff
-from service import StaffService
+from service.staff_service import StaffService
 from tools import Logger
 
 

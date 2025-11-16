@@ -1,5 +1,5 @@
 from model import Doctor
-from service import DoctorService
+from service.doctor_service import DoctorService
 from tools import Logger
 
 

@@ -1,5 +1,5 @@
 from model import Department
-from service import DepartmentService
+from service.department_service import DepartmentService
 from tools import Logger
 
 

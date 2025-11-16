@@ -1,6 +1,6 @@
 from controller.department_contoroller import DepartmentController
 from view import *
-from model import Department, Session
+from model import Department
 from controller.department_contoroller import DepartmentController
 
 class DepartmentView:
@@ -69,7 +69,7 @@ class DepartmentView:
 
     def select_department(self):
         if self.department_id.get():
-            status, Session.department = DepartmentController.find_by_id(self.department_id.get())
+            status,department = DepartmentController.find_by_id(self.department_id.get())
         else:
             messagebox.showerror("Select", "Select Department")
 

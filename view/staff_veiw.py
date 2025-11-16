@@ -1,5 +1,5 @@
 from view import *
-from model import Staff, Session
+from model import Staff
 from controller.staff_controller import StaffController
 
 
@@ -125,7 +125,7 @@ class StaffView:
 
     def select_staff(self):
         if self.staff_id.get():
-            status, Session.staff = StaffController.find_by_id(self.staff_id.get())
+            status, staff = StaffController.find_by_id(self.staff_id.get())
         else:
             messagebox.showerror("Select", "Select Staff")
 

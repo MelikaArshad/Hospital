@@ -1,5 +1,5 @@
 from view import *
-from model import Doctor, Session
+from model import Doctor
 from controller.doctor_controller import DoctorController
 
 class DoctorView:
@@ -101,7 +101,7 @@ class DoctorView:
 
     def select_doctor(self):
         if self.doctor_id.get():
-            status, Session.doctor = DoctorController.find_by_id(self.doctor_id.get())
+            status, doctor = DoctorController.find_by_id(self.doctor_id.get())
         else:
             messagebox.showerror("Select", "Select Doctor")
 

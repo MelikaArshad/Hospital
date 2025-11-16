@@ -1,5 +1,5 @@
 from view import *
-from model import Patient, Session
+from model import Patient
 from controller.patient_controller import PatientController
 
 
@@ -144,7 +144,7 @@ class PatientView:
 
     def select_patient(self):
         if self.unit_no.get():
-            status, Session.patient = PatientController.find_by_unit_no(self.unit_no.get())
+            status, patient = PatientController.find_by_unit_no(self.unit_no.get())
         else:
             messagebox.showerror("Select", "Select Patient")
 
