@@ -1,6 +1,7 @@
 from view import *
 from model import Patient
 from controller.patient_controller import PatientController
+from repository.
 
 
 class PatientView:
@@ -40,6 +41,8 @@ class PatientView:
         Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=680)
         Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=680)
         Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=680)
+        Button(self.window, text="View Record", width=12, command=self.view_record_click).place(x=660, y=680)
+
         self.reset_form()
         self.window.mainloop()
 
