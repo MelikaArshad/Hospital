@@ -1,6 +1,7 @@
 import unittest
-from controller.medical_record_controller import MedicalRecordController
-from tools.logger import Logger
+from model.medical_record import MedicalRecord
+from controller import MedicalRecordController
+from tools import Logger
 
 class TestMedicalRecordController(unittest.TestCase):
     def setUp(self):
@@ -8,22 +9,20 @@ class TestMedicalRecordController(unittest.TestCase):
 
     def test_save_medical_record(self):
         status, message = MedicalRecordController.save(
-            unit_no=1001, full_name="Test Patient", doctor_name="Test Doctor",
-            staff_name="Test Staff", department_name="Test Dept", session_type="Visit",
-            description="Test checkup"
-        )
+            1001,"Test Patient","Test Doctor",
+            "Test Staff","Test Dept","Visit","Test check")
         self.assertTrue(status)
         self.assertIn("Successfully", message)
         self.logger.info("Tested save_medical_record")
 
     def test_update_medical_record(self):
-        status, message = MedicalRecordController.update(unit_no=1001, description="Updated checkup")
+        status, message = MedicalRecordController.update(1001,"Updated check")
         self.assertTrue(status)
         self.assertIn("Updated", message)
         self.logger.info("Tested update_medical_record")
 
     def test_update_nonexistent_medical_record(self):
-        status, message = MedicalRecordController.update(unit_no=999999, description="Nonexistent")
+        status, message = MedicalRecordController.update(999999,"Nonexistent")
         self.assertFalse(status)
         self.logger.info("Tested update_nonexistent_medical_record")
 

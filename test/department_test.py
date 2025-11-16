@@ -1,27 +1,25 @@
 import unittest
-from controller.department_controller import DepartmentController
-from tools.logger import Logger
+from controller import DepartmentController
+from tools import Logger
 
 class TestDepartmentController(unittest.TestCase):
     def setUp(self):
         self.logger = Logger()
 
     def test_save_department(self):
-        status, message = DepartmentController.save(
-            department_name="Test Department", department_controller="Test Controller"
-        )
+        status, message = DepartmentController.save("Test Department", "Test Controller")
         self.assertTrue(status)
         self.assertIn("Successfully", message)
         self.logger.info("Tested save_department")
 
     def test_update_department(self):
-        status, message = DepartmentController.update(department_id=1, department_name="Updated Dept")
+        status, message = DepartmentController.update(1, "Updated Dept")
         self.assertTrue(status)
         self.assertIn("Updated", message)
         self.logger.info("Tested update_department")
 
     def test_update_nonexistent_department(self):
-        status, message = DepartmentController.update(department_id=999999, department_name="Nonexistent")
+        status, message = DepartmentController.update(999999, "Nonexistent")
         self.assertFalse(status)
         self.logger.info("Tested update_nonexistent_department")
 

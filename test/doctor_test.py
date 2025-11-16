@@ -1,6 +1,6 @@
 import unittest
 from controller.doctor_controller import DoctorController
-from tools.logger import Logger
+from tools import Logger
 
 class TestDoctorController(unittest.TestCase):
     def setUp(self):
@@ -8,23 +8,22 @@ class TestDoctorController(unittest.TestCase):
 
     def test_save_doctor(self):
         status, message = DoctorController.save(
-            full_name="Test Doctor", department_controller="Cardiology", father_name="Father",
-            national_code="8888888888", personal_id_no="D9999", degree="Specialist",
-            birth_date="1360/01/01", age=45, phone_number="09123456789", address="Tehran",
-            username="test_dr", password="pass123"
-        )
+            f"Test Doctor", "Cardiology", "Father",
+            "8888888888", "D9999", "Specialist",
+            "1360/01/01", 45, "09123456789", "Tehran",
+            "test_dr", "pass123")
         self.assertTrue(status)
         self.assertIn("Successfully", message)
         self.logger.info("Tested save_doctor")
 
     def test_update_doctor(self):
-        status, message = DoctorController.update(doctor_id=1, full_name="Updated Doctor")
+        status, message = DoctorController.update(1, "Updated Doctor")
         self.assertTrue(status)
         self.assertIn("Updated", message)
         self.logger.info("Tested update_doctor")
 
     def test_update_nonexistent_doctor(self):
-        status, message = DoctorController.update(doctor_id=999999, full_name="Nonexistent")
+        status, message = DoctorController.update(999999, "Nonexistent")
         self.assertFalse(status)
         self.logger.info("Tested update_nonexistent_doctor")
 
