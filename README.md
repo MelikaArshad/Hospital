@@ -108,7 +108,3 @@ Issues and pull requests are welcome.
 
 GitHub: MelikaArshad
 
-
----
-
-اگر بخوای نسخهٔ فارسی کامل، یا نسخهٔ پیشرفته‌تر با بخش نصب و اجرا 
