@@ -98,6 +98,18 @@ class PatientView:
             self.reset_form()
         else:
             messagebox.showerror("Patient Delete Error", message)
+    def view_record_click(self):
+        if not self.selected_patient:
+            messagebox.showwarning(title="Warning", message="Select a patient")
+            return
+        repo = MedicalRecordRepository()
+        data = repo.find_by_patient(self.selected_patient)
+        if data:
+            status, patient = PatientController.find_by_id(self.selected_patient)
+            if status:
+                MedicalRecordWindow(patient, data)
+        else:
+            messagebox.showinfo(title="No Record", message="No medical record found")
 
     def reset_form(self):
         self.unit_no.clear()
