@@ -1,7 +1,8 @@
 from tkinter import *
 from PIL import ImageTk, Image
-from model import Session
-from view.c
+from model import MedicalRecord
+from view import *
+
 
 class DashboardView:
     def department_view(self):

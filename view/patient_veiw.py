@@ -1,7 +1,7 @@
 from view import *
 from model import Patient
 from controller.patient_controller import PatientController
-from repository.
+from repository.medical_record_repository import MedicalRecordRepository
 
 
 class PatientView:
@@ -108,9 +108,9 @@ class PatientView:
         repo = MedicalRecordRepository()
         data = repo.find_by_patient(self.selected_patient)
         if data:
-            status, patient = PatientController.find_by_id(self.selected_patient)
+            status, patient = PatientController.find_by_unit_no(self.selected_patient)
             if status:
-                MedicalRecordWindow(patient, data)
+                MedicalRecordView(patient, data)
         else:
             messagebox.showinfo(title="No Record", message="No medical record found")
 

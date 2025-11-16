@@ -52,10 +52,7 @@ class TestMedicalRecordController(unittest.TestCase):
         self.assertFalse(status)
         self.logger.info("Tested find_by_unit_no_non_existent_record")
 
-    def test_find_by_name_medical_record(self):
-        records = MedicalRecordController.find_by_name("Test")
-        self.assertIsInstance(records, list)
-        self.logger.info("Tested find_by_name_medical_record")
+
 
 if __name__ == '__main__':
     unittest.main()

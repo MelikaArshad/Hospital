@@ -2,3 +2,4 @@ from repository.department_repository import DepartmentRepository
 from repository.staff_repository import StaffRepository
 from repository.doctor_repository import DoctorRepository
 from repository.patient_repository import PatientRepository
+from repository.medical_record_repository import MedicalRecordRepository

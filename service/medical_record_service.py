@@ -1,4 +1,4 @@
-# service/medical_record_service.py
+
 from repository.medical_record_repository import MedicalRecordRepository
 from model.medical_record import MedicalRecord
 
@@ -11,7 +11,7 @@ class MedicalRecordService:
 
     @classmethod
     def find_by_unit_no(cls, unit_no: int):
-        record = cls.medical_record_repository.find_by_unit_no(unit_no)
+        record = cls.medical_record_repository.find_by_id(unit_no)
         if record:
             return record
         else:

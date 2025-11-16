@@ -1,12 +1,12 @@
 from view import *
-from controller import EmployeeController
-from model import Session
+from controller import StaffController
+from model import Staff
 
 class LoginView:
     def __init__(self):
-        self.employee_controller = EmployeeController()
+        self.staff_controller =StaffController()
         self.window=Tk()
-        self.window.title("Employee")
+        self.window.title("Staff")
         self.window.config(background="white")
         self.window.geometry("300x500")
 
@@ -18,8 +18,8 @@ class LoginView:
         self.username = LabelWithEntry(self.window,"Username",30,270)
         self.password = LabelWithEntry(self.window,"Password",30,310)
 
-        self.username.set("aliuser")
-        self.password.set("pass1234")
+        self.username.set("Melika")
+        self.password.set("1234pass")
 
         Button(self.window, text="Login", width=8,font=("Arial", 14), command=self.login).place(x=50, y=380, width=200,height=70)
 
@@ -27,11 +27,11 @@ class LoginView:
 
 
     def login(self):
-        status, employee = self.employee_controller.find_by_username_and_password(self.username.get(), self.password.get())
+        status, staff = self.staff_controller.find_by_national_code(self.username.get(), self.password.get())
 
         if status:
             self.window.destroy()
-            Session.employee = employee
+            Staff.staff = staff
             DashboardView()
         else:
             messagebox.showerror("Login Error", "Access Denied !!!")
