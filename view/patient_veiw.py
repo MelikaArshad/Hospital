@@ -7,7 +7,7 @@ from repository.medical_record_repository import MedicalRecordRepository
 class PatientView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("1300x750")
+        self.window.geometry("1400x750")
         self.window.title("Patient Management")
 
         self.unit_no = LabelWithEntry(self.window, "Unit No", 20, 20, data_type=IntVar, state="readonly")
@@ -30,18 +30,18 @@ class PatientView:
         self.table = Table(
             self.window,
             ["Unit NO", "Full Name", "Father Name", "National Code","Birth Name","Phone Number","Age","Height","Weight","Attending Physician","Kind Of Ad","Date Of Admission","Ward","Room","Bed", "Notes Text" ],
-            [80, 100, 90, 100, 50, 50, 50, 110, 90,70,60,60],
-            520, 20,
+            [60, 90, 70, 90, 80, 80, 50, 50, 60,60,80,80,50,30,30,30,120],
+            360, 20,
             30,
             self.select_from_table
         )
 
-        Button(self.window, text="Select Patient", width=15, command=self.select_patient).place(x=20, y=600)
-        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=600)
-        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=600)
-        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=600)
-        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=600)
-        Button(self.window, text="View Record", width=12, command=self.view_record_click).place(x=660, y=600)
+        Button(self.window, text="Select Patient", width=15, command=self.select_patient).place(x=20, y=700)
+        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=700)
+        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=700)
+        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=700)
+        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=700)
+        Button(self.window, text="View Record", width=12, command=self.view_record_click).place(x=660, y=700)
 
         self.reset_form()
         self.window.mainloop()
@@ -174,6 +174,12 @@ class PatientView:
             self.table.refresh_table(data_for_table)
         else:
             self.table.clear_table()
+
+    def view_record_click(self):
+
+
+
+
 
 
 

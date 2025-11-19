@@ -5,7 +5,7 @@ from controller.doctor_controller import DoctorController
 class DoctorView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("1250x700")
+        self.window.geometry("1550x700")
         self.window.title("Doctor Management")
 
         self.doctor_id = LabelWithEntry(self.window, "Id", 20,20, data_type=IntVar, state="readonly")
@@ -25,17 +25,17 @@ class DoctorView:
         self.table = Table(
             self.window,
             ["Id", "Full Name","Department Controller","Father Name","National Code","Personal Id No","Degree","Birth Date","Age","Phone Number","Address","Username","Password"],
-            [60,120,100,90,100,100,80,50,110],
-            520,20,
+            [50,100,100,80,100,100,80,100,50,100,120,80,80],
+            350,20,
             28,
             self.select_from_table
         )
 
-        Button(self.window, text="Select Doctor", width=15, command=self.select_doctor).place(x=20, y=600)
-        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=600)
-        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=600)
-        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=600)
-        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=600)
+        Button(self.window, text="Select Doctor", width=15, command=self.select_doctor).place(x=20, y=650)
+        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=650)
+        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=650)
+        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=650)
+        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=650)
         self.reset_form()
         self.window.mainloop()
 

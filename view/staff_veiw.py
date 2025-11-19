@@ -6,7 +6,7 @@ from controller.staff_controller import StaffController
 class StaffView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("1200x720")
+        self.window.geometry("1450x720")
         self.window.title("Staff Management")
 
         self.staff_id = LabelWithEntry(self.window, "Id", 20, 20, data_type=IntVar, state="readonly")
@@ -28,17 +28,17 @@ class StaffView:
             self.window,
             ["Id", "Full Name", "Father Name", "National Code", "Personal Id No", "Degree",
              "Birth Date", "Age", "Phone Number", "Address", "Username", "Password","Ward", "Role"],
-            [60, 120, 100, 110, 100, 80, 50, 110, 80,80],
-            500, 20,
+            [50, 100, 80, 100, 90, 80, 80, 50, 80,90,70,70,60,80],
+            350, 20,
             28,
             self.select_from_table
         )
 
-        Button(self.window, text="Select Staff", width=15, command=self.select_doctor).place(x=20, y=600)
-        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=600)
-        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=600)
-        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=600)
-        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=600)
+        Button(self.window, text="Select Staff", width=15, command=self.select_staff).place(x=20, y=670)
+        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=180, y=670)
+        Button(self.window, text="Save", width=12, command=self.save_click).place(x=300, y=670)
+        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=420, y=670)
+        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=540, y=670)
         self.reset_form()
         self.window.mainloop()
 

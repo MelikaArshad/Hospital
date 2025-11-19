@@ -1,26 +1,21 @@
 from tkinter import *
 from PIL import ImageTk, Image
 from model import MedicalRecord
-from view import *
-
-
-class DashboardView:
-    from tkinter import *
-from view.department_view import DepartmentView
-from view.doctor_view import DoctorView
-from view.patient_view import PatientView
-from view.staff_view import StaffView
+from view.department_veiw import DepartmentView
+from view.doctor_veiw import DoctorView
+from view.patient_veiw import PatientView
+from view.staff_veiw import StaffView
 
 
 class DashboardView:
     def __init__(self):
     
         self.window = Tk()
-        self.window.title("Dashboard")
+        self.window.title("Hospital")
         self.window.geometry("400x300")
         self.window.config(background="white")
 
-        Label(self.window, text="Hospital Dashboard", font=("Arial", 16)).pack(pady=20)
+        Label(self.window, text="Hospital", font=("Arial", 16)).pack(pady=20)
 
         
         Button(self.window, text="Departments", width=20, command=self.department_view).pack(pady=5)

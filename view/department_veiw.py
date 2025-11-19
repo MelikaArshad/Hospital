@@ -1,4 +1,3 @@
-from controller.department_contoroller import DepartmentController
 from view import *
 from model import Department
 from controller.department_contoroller import DepartmentController
@@ -6,7 +5,7 @@ from controller.department_contoroller import DepartmentController
 class DepartmentView:
     def __init__(self):
         self.window = Tk()
-        self.window.geometry("900x500")
+        self.window.geometry("920x550")
         self.window.title("Department Management")
 
         self.department_id = LabelWithEntry(self.window, "Id", 20,20, data_type=IntVar, state="readonly")
@@ -17,16 +16,16 @@ class DepartmentView:
             self.window,
             ["Id","Department Name","Department Controller" ],
             [80,200,200],
-            450,20,
+            400,20,
             20,
             self.select_from_table
         )
 
-        Button(self.window, text="Select Department", width=18, command=self.select_department).place(x=20, y=300)
-        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=200, y=300)
-        Button(self.window, text="Save", width=12, command=self.save_click).place(x=320, y=300)
-        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=440, y=300)
-        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=560, y=300)
+        Button(self.window, text="Select Department", width=18, command=self.select_department).place(x=20, y=500)
+        Button(self.window, text="Refresh", width=12, command=self.refresh).place(x=200, y=500)
+        Button(self.window, text="Save", width=12, command=self.save_click).place(x=320, y=500)
+        Button(self.window, text="Edit", width=12, command=self.edit_click).place(x=440, y=500)
+        Button(self.window, text="Delete", width=12, command=self.delete_click).place(x=560, y=500)
         self.reset_form()
         self.window.mainloop()
 
