@@ -176,23 +176,19 @@ class PatientView:
             self.table.clear_table()
 
     
-        def view_record_click(self):
-        
-        unit_no = self.unit_no.get().strip()
+    def view_record_click(self):
 
-        if not unit_no:
-            messagebox.showwarning("هشدار", "لطفاً شماره واحد بیمار را وارد یا یک بیمار را انتخاب کنید!")
-            return
+       unit_no =str(self.unit_no.get()).strip()
+       if not unit_no:
+           messagebox.showerror("Erorr", "Plesse enter unit no patient!")
+           return
 
-    
-        status, patient = PatientController.find_by_unit_no(unit_no)
-        if not status:
-            messagebox.showerror("خطا", "بیمار با این شماره واحد یافت نشد!")
-            return
-        try:
-            record_window = MedicalRecordView(unit_no) 
-        except Exception as e:
-            messagebox.showerror("خطای سیستم",e)
+       status, patient = PatientController.find_by_unit_no(unit_no)
+       if not status:
+           messagebox.showerror("Erorr", "Patient not found!")
+           return
+
+       MedicalRecordView(unit_no)
 
 
 

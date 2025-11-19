@@ -5,7 +5,8 @@ from model.medical_record import MedicalRecord
 
 
 class MedicalRecordView:
-    def __init__(self):
+    def __init__(self,unit_no=None):
+        self.unit_no = unit_no
         self.window = Tk()
         self.window.title("Medical Record Management")
         self.window.geometry("1400x800")
