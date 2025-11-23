@@ -21,7 +21,7 @@ class DashboardView:
         Button(self.window, text="Departments", width=20, command=self.department_view).pack(pady=5)
         Button(self.window, text="Doctors", width=20, command=self.doctor_view).pack(pady=5)
         Button(self.window, text="Patients", width=20, command=self.patient_view).pack(pady=5)
-        Button(self.window, text="Staff", width=20, command=self.staff_view).pack(pady=5)
+        Button(self.window, text="Staffs", width=20, command=self.staff_view).pack(pady=5)
 
         self.window.mainloop()
 

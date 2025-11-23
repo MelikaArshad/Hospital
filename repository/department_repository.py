@@ -1,6 +1,8 @@
 import sqlite3
 from model import Department
-
+import os
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+db_path = os.path.join(base_dir, "db/hospital.db")
 
 class DepartmentRepository:
     def __init__(self):
@@ -8,7 +10,7 @@ class DepartmentRepository:
         self.connection = None
 
     def connect(self):
-        self.connection = sqlite3.connect("./db/hospital_db")
+        self.connection = sqlite3.connect(db_path)
         self.cursor = self.connection.cursor()
 
     def disconnect(self):
@@ -17,15 +19,16 @@ class DepartmentRepository:
 
     def save(self, department):
         self.connect()
-        self.cursor.execute("insert into departments (department_name,department_controller) values (?,?)",
+        self.cursor.execute("insert into Departments (department_name,department_controller) values (?,?)",
                             [department.department_name,department.department_controller])
         department.id = self.cursor.lastrowid
         self.connection.commit()
+
         return department
 
     def update(self, department):
         self.connect()
-        self.cursor.execute("update departments set department_name=?,department_controller=? where department_id=?",
+        self.cursor.execute("update Departments set department_name=?,department_controller=? where department_id=?",
                             [department.department_id,department.department_name,department.department_controller])
         self.connection.commit()
         self.disconnect()

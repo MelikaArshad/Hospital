@@ -1,6 +1,8 @@
 import sqlite3
 from model import Doctor
-
+import os
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+db_path = os.path.join(base_dir, "db/hospital.db")
 
 class DoctorRepository:
     def __init__(self):
@@ -8,7 +10,7 @@ class DoctorRepository:
         self.connection = None
 
     def connect(self):
-        self.connection = sqlite3.connect("./db/hospital_db")
+        self.connection = sqlite3.connect(db_path)
         self.cursor = self.connection.cursor()
 
     def disconnect(self):
@@ -17,7 +19,7 @@ class DoctorRepository:
 
     def save(self, doctor):
         self.connect()
-        self.cursor.execute("insert into banks (full_name ,department_controller,father_name, national_code, personal_id_no, degree, birth_date, age,phone_number, address, username, password) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        self.cursor.execute("insert into doctors (full_name ,department_controller,father_name, national_code, personal_id_no, degree, birth_date, age,phone_number, address, username, password) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
          [doctor.full_name, doctor.department_controller, doctor.father_name, doctor.national_code,
           doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,
           doctor.phone_number, doctor.address, doctor.username, doctor.password])
@@ -35,7 +37,7 @@ class DoctorRepository:
 
     def delete(self, doctor_id):
         self.connect()
-        self.cursor.execute("delete from banks where doctor_id=?",
+        self.cursor.execute("delete from doctors where doctor_id=?",
                             [doctor_id])
         self.connection.commit()
         self.disconnect()
