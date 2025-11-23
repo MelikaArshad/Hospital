@@ -2,15 +2,16 @@ from view import *
 from model import Doctor
 from controller.doctor_controller import DoctorController
 
+
 class DoctorView:
     def __init__(self):
         self.window = Tk()
         self.window.geometry("1550x700")
         self.window.title("Doctor Management")
 
-        self.doctor_id = LabelWithEntry(self.window, "Id", 20,20, data_type=IntVar, state="readonly")
-        self.full_name= LabelWithEntry(self.window, "Full Name", 20,60)
-        self.department_controller= LabelWithEntry(self.window, "Department Controller", 20,100)
+        self.doctor_id = LabelWithEntry(self.window, "Id", 20, 20, data_type=IntVar, state="readonly")
+        self.full_name = LabelWithEntry(self.window, "Full Name", 20, 60)
+        self.department_controller = LabelWithEntry(self.window, "Department Controller", 20, 100)
         self.father_name = LabelWithEntry(self.window, "Father Name", 20, 140)
         self.national_code = LabelWithEntry(self.window, "National Code", 20, 180, data_type=IntVar)
         self.personal_id_no = LabelWithEntry(self.window, "Personal Id No", 20, 220, data_type=IntVar)
@@ -24,9 +25,10 @@ class DoctorView:
 
         self.table = Table(
             self.window,
-            ["Id", "Full Name","Department Controller","Father Name","National Code","Personal Id No","Degree","Birth Date","Age","Phone Number","Address","Username","Password"],
-            [50,100,100,80,100,100,80,100,50,100,120,80,80],
-            350,20,
+            ["Id", "Full Name", "Department Controller", "Father Name", "National Code", "Personal Id No", "Degree",
+             "Birth Date", "Age", "Phone Number", "Address", "Username", "Password"],
+            [50, 100, 100, 80, 100, 100, 80, 100, 50, 100, 120, 80, 80],
+            350, 20,
             28,
             self.select_from_table
         )
@@ -40,28 +42,49 @@ class DoctorView:
         self.window.mainloop()
 
     def save_click(self):
-        status, message= DoctorController.save(self.doctor_id.get(),self.full_name.get() ,self.department_controller.get(),self.father_name.get(), self.national_code.get(), self.personal_id_no.get(),self.degree.get(), self.birth_date.get(), self.age.get(),
-                 self.phone_number.get(),self.address.get(), self.username.get(), self.password.get())
+        status, message = (
+            DoctorController.save(
+                self.full_name.get(),
+                self.department_controller.get(),
+                self.father_name.get(),
+                self.national_code.get(),
+                self.personal_id_no.get(),
+                self.degree.get(),
+                self.birth_date.get(),
+                self.age.get(),
+                self.phone_number.get(),
+                self.address.get(),
+                self.username.get(),
+                self.password.get()
+            )
+        )
         if status:
             messagebox.showinfo("Doctor Saved", message)
             self.reset_form()
         else:
             messagebox.showerror("Doctor Save Error", message)
+
     def edit_click(self):
-        status, message= DoctorController.update(self.doctor_id.get(),self.full_name.get() ,self.department_controller.get(),self.father_name.get(), self.national_code.get(), self.personal_id_no.get(),self.degree.get(), self.birth_date.get(), self.age.get(),
-                 self.phone_number.get(),self.address.get(), self.username.get(), self.password.get())
+        status, message = DoctorController.update(self.doctor_id.get(), self.full_name.get(),
+                                                  self.department_controller.get(), self.father_name.get(),
+                                                  self.national_code.get(), self.personal_id_no.get(),
+                                                  self.degree.get(), self.birth_date.get(), self.age.get(),
+                                                  self.phone_number.get(), self.address.get(), self.username.get(),
+                                                  self.password.get())
         if status:
             messagebox.showinfo("Doctor Updated", message)
             self.reset_form()
         else:
             messagebox.showerror("Doctor Update Error", message)
+
     def delete_click(self):
-        status, message= DoctorController.delete(self.doctor_id.get())
+        status, message = DoctorController.delete(self.doctor_id.get())
         if status:
             messagebox.showinfo("Doctor Deleted", message)
             self.reset_form()
         else:
             messagebox.showerror("Doctor Delete Error", message)
+
     def reset_form(self):
         self.doctor_id.clear()
         self.full_name.clear()
@@ -76,8 +99,12 @@ class DoctorView:
         self.phone_number.clear()
         self.username.clear()
         self.password.clear()
-        status, doctor_list = DoctorController.find_all()
-        self.table.refresh_table(doctor_list)
+        status, doctor = DoctorController.find_all()
+        if status:
+           self.table.refresh_table(doctor)
+        else:
+            messagebox.showerror("Doctor Reset Error", doctor)
+            self.table.refresh_table([])
 
     def select_from_table(self, selected_doctor):
         if selected_doctor:
@@ -98,23 +125,22 @@ class DoctorView:
                 self.username.set(doctor.username)
                 self.password.set(doctor.password)
 
-
     def select_doctor(self):
-        if self.doctor_id.get():
-            status, doctor = DoctorController.find_by_id(self.doctor_id.get())
+        status,doctor = DoctorController.find_by_id(self.doctor_id.get())
+        if doctor:
+            self.doctor_id.get()
         else:
             messagebox.showerror("Select", "Select Doctor")
 
     def refresh(self):
-        status , doctor_list = DoctorController.find_all()
+        status, doctor_list = DoctorController.find_all()
         if status:
             data_for_table = []
             for doctor in doctor_list:
-                row = [doctor.doctor_id, doctor.full_name, doctor.department_controller, doctor.father_name, doctor.national_code, doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,doctor.phone_number, doctor.address, doctor.username, doctor.password]
+                row = [doctor.doctor_id, doctor.full_name, doctor.department_controller, doctor.father_name,
+                       doctor.national_code, doctor.personal_id_no, doctor.degree, doctor.birth_date, doctor.age,
+                       doctor.phone_number, doctor.address, doctor.username, doctor.password]
                 data_for_table.append(row)
             self.table.refresh_table(data_for_table)
         else:
             self.table.clear_table()
-
-
-

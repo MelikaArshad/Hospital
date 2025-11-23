@@ -77,7 +77,7 @@ class DoctorController:
     @classmethod
     def find_by_national_code(cls, national_code):
         try:
-            bank_list = cls.national_code.find_by_national_code(national_code)
+            bank_list = cls.doctor_service.find_by_national_code(national_code)
             Logger.info(f"Staff Find By national code {national_code}")
             return True, bank_list
         except Exception as e:

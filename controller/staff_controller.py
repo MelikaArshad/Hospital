@@ -7,12 +7,11 @@ class StaffController:
     staff_service = StaffService()
 
     @classmethod
-    def save(cls, full_name, family_name, father_name, national_code, personal_id_no, degree, birth_date, age,
-             address, phone_number, username, password, ward, role):
+    def save(cls,full_name,  father_name, national_code, personal_id_no, degree, birth_date, age,
+              phone_number,address, username, password, ward, role):
         try:
-            staff = Staff(None, full_name, family_name, father_name, national_code, personal_id_no, degree, birth_date,
-                          age,
-                          address, phone_number, username, password, ward, role)
+            staff = Staff(None , full_name,  father_name, national_code, personal_id_no, degree, birth_date,
+                          age, phone_number, address, username, password, ward, role)
             staff.validate()
             staff = cls.staff_service.save(staff)
             Logger.info(f"Staff {staff} saved")
@@ -22,14 +21,12 @@ class StaffController:
             return False, e
 
     @classmethod
-    def update(cls, staff_id, full_name, family_name, father_name, national_code, personal_id_no, degree, birth_date,
+    def update(cls, staff_id, full_name, father_name, national_code, personal_id_no, degree, birth_date,
                age,
-               address, phone_number, username, password, ward, role):
+                phone_number,address, username, password, ward, role):
         try:
-            staff = Staff(staff_id, full_name, family_name, father_name, national_code, personal_id_no, degree,
-                          birth_date,
-                          age, phone_number,
-                          address, username, password, ward, role)
+            staff = Staff(staff_id, full_name, father_name, national_code, personal_id_no, degree,
+                          birth_date, age, phone_number,address, username, password, ward, role)
             staff.validate()
             staff = cls.staff_service.update(staff)
             Logger.info(f"Staff {staff} updated")
@@ -81,7 +78,7 @@ class StaffController:
     @classmethod
     def find_by_national_code(cls, national_code):
         try:
-            bank_list = cls.national_code.find_by_national_code(national_code)
+            bank_list = cls.staff_service.find_by_national_code(national_code)
             Logger.info(f"Staff Find By national code {national_code}")
             return True, bank_list
         except Exception as e:

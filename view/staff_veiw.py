@@ -44,7 +44,6 @@ class StaffView:
 
     def save_click(self):
         status, message = StaffController.save(
-            self.staff_id.get(),
             self.full_name.get(),
             self.father_name.get(),
             self.national_code.get(),
@@ -78,7 +77,7 @@ class StaffView:
             messagebox.showerror("Staff Update Error", message)
 
     def delete_click(self):
-        status, message = StaffController.delete(self.Staff_id.get())
+        status, message = StaffController.delete(self.staff_id.get())
         if status:
             messagebox.showinfo("Staff Deleted", message)
             self.reset_form()
@@ -108,7 +107,7 @@ class StaffView:
             status, staff = StaffController.find_by_id(selected_staff[0])
             if status:
                 staff = Staff(*selected_staff)
-                self.staff_id.set(staff.doctor_id)
+                self.staff_id.set(staff.staff_id)
                 self.full_name.set(staff.full_name)
                 self.father_name.set(staff.father_name)
                 self.national_code.set(staff.national_code)
@@ -124,8 +123,10 @@ class StaffView:
                 self.role.set(staff.role)
 
     def select_staff(self):
-        if self.staff_id.get():
-            status, staff = StaffController.find_by_id(self.staff_id.get())
+        status, staff = StaffController.find_by_id(self.staff_id.get())
+        if staff:
+            self.staff_id.get()
+
         else:
             messagebox.showerror("Select", "Select Staff")
 

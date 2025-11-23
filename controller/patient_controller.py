@@ -7,10 +7,10 @@ class PatientController:
     patient_service = PatientService()
 
     @classmethod
-    def save(cls, full_name, father_name, national_code, birth_date, phone_number, age, height, weight,
+    def save(cls,unit_no, full_name, father_name, national_code, birth_date, phone_number, age, height, weight,
              attending_physician, kind_of_ad, date_of_admission, ward, room, bed, notes_text):
         try:
-            patient = Patient(None, full_name, father_name, national_code, birth_date, phone_number, age, height,
+            patient = Patient(unit_no, full_name, father_name, national_code, birth_date, phone_number, age, height,
                               weight,
                               attending_physician, kind_of_ad, date_of_admission, ward, room, bed, notes_text)
             patient.validate()

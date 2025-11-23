@@ -132,8 +132,12 @@ class PatientView:
         self.bed.clear()
         self.notes_text.clear()
 
-        status, patient_list = PatientController.find_all()
-        self.table.refresh_table(patient_list)
+        status, patient = PatientController.find_all()
+        if status:
+          self.table.refresh_table(patient)
+        else:
+            messagebox.showerror("Patient Reset Error", patient)
+            self.table.refresh_table([])
 
     def select_from_table(self, selected_patient):
         if selected_patient:

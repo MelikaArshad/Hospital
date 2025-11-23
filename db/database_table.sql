@@ -1,3 +1,5 @@
+-- ATTACH DATABASE 'db/hospital.db' AS hospital;
+
 -- ============================================
 -- DATABASE SCHEMA FOR HOSPITAL SYSTEM
 -- Exact match with Model __init__ parameters
