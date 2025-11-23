@@ -47,4 +47,20 @@ INSERT OR IGNORE INTO medical_records (
 (4, 1004, 'Dr. Maryam Karimi', 'Hassan Yazdani', 'Internal Medicine', 'Consultation',
  'Patient with uncontrolled diabetes and fatigue. Adjusted insulin regimen.',
  'Blood sugar monitoring q4h. Diet consultation done.',
- 'HbA1c: 9.8, Fasting BS: 210, Kidney function normal', 1200000, '2025-11-19');
+ 'HbA1c: 9.8, Fasting BS: 210, Kidney function normal', 1200000,'2025-11-19');
+
+INSERT OR IGNORE INTO departments (department_id, department_name, department_controller) VALUES
+(1,  'Cardiology',                    'Dr. Reza Ahmadi'),
+(2,  'General Surgery',               'Dr. Sara Hosseini'),
+(3,  'Internal Medicine',             'Dr. Maryam Karimi'),
+(4,  'Pediatrics',                     'Dr. Ali Mohammadi'),
+(5,  'Obstetrics & Gynecology',       'Dr. Fatemeh Sharifi'),
+(6,  'Emergency Department',          'Dr. Hossein Karimi'),
+(7,  'Neurology',                      'Dr. Nima Javadi'),
+(8,  'Orthopedics',                    'Dr. Kaveh Yazdani'),
+(9,  'Radiology',                      'Dr. Leila Rahimi'),
+(10, 'Pathology & Laboratory',        'Dr. Mohammad Jafari'),
+(11, 'Intensive Care Unit (ICU)',      'Dr. Amir Hosseini'),
+(12, 'Oncology',                       'Dr. Parisa Salehi'),
+(13, 'Operating Theater',             'Dr. Sara Hosseini'),
+(14, 'Physical Therapy',              'Dr. Hamed Rahmani');
