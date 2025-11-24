@@ -1,7 +1,5 @@
-from view.loging_veiw import LoginView
-from view.dashboard import DashboardView
-import os
+from loging_veiw import LoginView ,DashboardView
+# from view.dashboard import DashboardView
+
 # ui = LoginView()
 ui= DashboardView()
-print("current file",__file__)
-print("abs path",os.path.abspath("db/hospital.db"))

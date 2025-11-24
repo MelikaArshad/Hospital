@@ -1,4 +1,4 @@
-from tkinter import *
+
 import tkinter.ttk as ttk
 
 
@@ -38,7 +38,7 @@ class Table:
     #     if function_name:
     #         self.table.bind("<<TreeviewSelect>>",self.table_select)
     #         self.function=function_name
-    def table_select(self, event=None):
+    def table_select(self, _):
         row_id = self.table.focus()
         if row_id:
             item = self.table.item(row_id)

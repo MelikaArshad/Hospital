@@ -18,7 +18,7 @@ class StaffController:
             return True, f"Staff Saved Successfully"
         except Exception as e:
             Logger.error(f"Staff Saved Error: {e}")
-            return False, e
+            return False, f"Staff Saved Error"
 
     @classmethod
     def update(cls, staff_id, full_name, father_name, national_code, personal_id_no, degree, birth_date,
@@ -33,7 +33,7 @@ class StaffController:
             return True, "Staff Updated Successfully"
         except Exception as e:
             Logger.error(f"Staff Updated Error: {e}")
-            return False, e
+            return False, f"Staff Updated Error"
 
     @classmethod
     def delete(cls, staff_id):
@@ -43,7 +43,7 @@ class StaffController:
             return True, f"Staff Deleted Successfully"
         except Exception as e:
             Logger.error(f"Staff Delete Error: {e}")
-            return False, e
+            return False, f"Staff Deleted Error"
 
     @classmethod
     def find_all(cls):
@@ -53,7 +53,7 @@ class StaffController:
             return True, staff_list
         except Exception as e:
             Logger.error(f"Staff FindAll Error: {e}")
-            return False, e
+            return False, f"Staff FindAll Error"
 
     @classmethod
     def find_by_id(cls, staff_id):
@@ -63,7 +63,7 @@ class StaffController:
             return True, staff
         except Exception as e:
             Logger.error(f"{e} With Id {staff_id}")
-            return False, e
+            return False, f"Staff FindById {staff_id}"
 
     @classmethod
     def find_by_name(cls, full_name):
@@ -73,7 +73,7 @@ class StaffController:
             return True, staff_list
         except Exception as e:
             Logger.error(f"Staff FindByName Error: {e}")
-            return False, e
+            return False, f"Staff FindByName {full_name}"
 
     @classmethod
     def find_by_national_code(cls, national_code):
@@ -83,4 +83,4 @@ class StaffController:
             return True, bank_list
         except Exception as e:
             Logger.error(f"Staff Find By national code Error: {e}")
-            return False, e
+            return False, f"Staff Find By national code Error: {e}"

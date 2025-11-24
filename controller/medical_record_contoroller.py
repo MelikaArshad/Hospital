@@ -7,18 +7,18 @@ class MedicalRecordController:
     @classmethod
     def save(cls, unit_no, full_name, doctor_name, staff_name, department_name,
              session_type, description, medications, nursing_care,
-             lab_tests, services, total_amount, payment_status):
+             lab_tests, services, total_amount, payment_status,date_of_admission):
         try:
             medical_record = MedicalRecord(None,unit_no, full_name, doctor_name, staff_name, department_name,
              session_type, description, medications, nursing_care,
-             lab_tests, services, total_amount, payment_status)
+             lab_tests, services, total_amount, payment_status,date_of_admission)
             medical_record.validate()
             medical_record= cls.medical_record_service.save(medical_record)
             Logger.info(f"medical_record {medical_record} saved")
             return True, f"medical_record Saved Successfully"
         except Exception as e:
             Logger.error(f"medical_record Saved Error: {e}")
-            return False, e
+            return False, f"medical_record Saved Error: {e}"
 
 
 
@@ -34,4 +34,4 @@ class MedicalRecordController:
                 return False, "Record Not Found"
         except Exception as e:
             Logger.error(f"MedicalRecord FindByUnitNo Error: {e}")
-            return False, e
+            return False, f"MedicalRecord FindByUnitNo Error: {e}"

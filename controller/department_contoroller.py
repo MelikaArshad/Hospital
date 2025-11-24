@@ -16,7 +16,7 @@ class DepartmentController:
             return True, f"department Saved Successfully"
         except Exception as e:
             Logger.error(f"department Saved Error: {e}")
-            return False, e
+            return False, f"department Saved Error: {e}"
 
     @classmethod
     def update(cls, department_id,department_name,department_controller):
@@ -28,7 +28,7 @@ class DepartmentController:
             return True, "department Updated Successfully"
         except Exception as e:
             Logger.error(f"department Updated Error: {e}")
-            return False, e
+            return False, f"department Updated Error: {e}"
 
     @classmethod
     def delete(cls, department_id):
@@ -38,7 +38,7 @@ class DepartmentController:
             return True, f"department Deleted Successfully"
         except Exception as e:
             Logger.error(f"department Delete Error: {e}")
-            return False, e
+            return False, f"department Delete Error: {e}"
 
     @classmethod
     def find_all(cls):
@@ -48,7 +48,7 @@ class DepartmentController:
             return True, department_list
         except Exception as e:
             Logger.error(f"department FindAll Error: {e}")
-            return False, e
+            return False, f"department FindAll Error: {e}"
 
     @classmethod
     def find_by_id(cls, department_id):
@@ -58,7 +58,7 @@ class DepartmentController:
             return True, department
         except Exception as e:
             Logger.error(f"{e} With Id {department_id}")
-            return False, e
+            return False, f"department FindById {department_id} Error: {e}"
 
     @classmethod
     def find_by_name(cls, full_name):
@@ -68,5 +68,5 @@ class DepartmentController:
             return True, department_list
         except Exception as e:
             Logger.error(f"department FindByName Error: {e}")
-            return False, e
+            return False, f"department FindByName {full_name} Error: {e}"
 

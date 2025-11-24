@@ -18,7 +18,7 @@ class DoctorController:
             return True, f"doctor Saved Successfully"
         except Exception as e:
             Logger.error(f"doctor Saved Error: {e}")
-            return False, e
+            return False, f"doctor Saved Error: {e}"
 
     @classmethod
     def update(cls, doctor_id,full_name ,department_controller,father_name, national_code, personal_id_no, degree, birth_date, age,
@@ -32,7 +32,7 @@ class DoctorController:
             return True, "doctor Updated Successfully"
         except Exception as e:
             Logger.error(f"doctor Updated Error: {e}")
-            return False, e
+            return False, f"doctor Updated Error: {e}"
 
     @classmethod
     def delete(cls, doctor_id):
@@ -42,7 +42,7 @@ class DoctorController:
             return True, f"doctor Deleted Successfully"
         except Exception as e:
             Logger.error(f"doctor Delete Error: {e}")
-            return False, e
+            return False, f"doctor Delete Error: {e}"
 
     @classmethod
     def find_all(cls):
@@ -52,7 +52,7 @@ class DoctorController:
             return True, doctor_list
         except Exception as e:
             Logger.error(f"doctor FindAll Error: {e}")
-            return False, e
+            return False, f"doctor FindAll Error: {e}"
 
     @classmethod
     def find_by_id(cls, doctor_id):
@@ -62,7 +62,7 @@ class DoctorController:
             return True, doctor
         except Exception as e:
             Logger.error(f"{e} With Id {doctor_id}")
-            return False, e
+            return False, f"doctor FindById {doctor_id} Error: {e}"
 
     @classmethod
     def find_by_name(cls, full_name):
@@ -72,7 +72,7 @@ class DoctorController:
             return True, doctor_list
         except Exception as e:
             Logger.error(f"doctor FindByName Error: {e}")
-            return False, e
+            return False, f"doctor FindByName {full_name} Error: {e}"
 
     @classmethod
     def find_by_national_code(cls, national_code):
@@ -82,4 +82,4 @@ class DoctorController:
             return True, bank_list
         except Exception as e:
             Logger.error(f"Staff Find By national code Error: {e}")
-            return False, e
+            return False, f"Staff Find By national code Error: {e}"

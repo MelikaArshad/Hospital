@@ -19,7 +19,7 @@ class PatientController:
             return True, f"Patient Saved Successfully"
         except Exception as e:
             Logger.error(f"Patient Saved Error: {e}")
-            return False, e
+            return False, f"Patient Saved Error: {e}"
 
     @classmethod
     def update(cls, unit_no, full_name, father_name, national_code, birth_date, phone_number, age, height, weight,
@@ -34,7 +34,7 @@ class PatientController:
             return True, "Patient Updated Successfully"
         except Exception as e:
             Logger.error(f"Patient Updated Error: {e}")
-            return False, e
+            return False, f"Patient Updated Error: {e}"
 
     @classmethod
     def delete(cls, unit_no):
@@ -44,7 +44,7 @@ class PatientController:
             return True, f"Patient Deleted Successfully"
         except Exception as e:
             Logger.error(f"Patient Delete Error: {e}")
-            return False, e
+            return False, f"Patient Delete Error: {e}"
 
     @classmethod
     def find_all(cls):
@@ -54,7 +54,7 @@ class PatientController:
             return True, patient_list
         except Exception as e:
             Logger.error(f"patient FindAll Error: {e}")
-            return False, e
+            return False, f"patient FindAll Error: {e}"
 
     @classmethod
     def find_by_unit_no(cls, unit_no):
@@ -64,7 +64,7 @@ class PatientController:
             return True, patient
         except Exception as e:
             Logger.error(f"{e} With unit_no {unit_no}")
-            return False, e
+            return False, f"Patient Find By unit_no {unit_no}"
 
     @classmethod
     def find_by_name(cls, full_name):
@@ -74,14 +74,14 @@ class PatientController:
             return True, patient_list
         except Exception as e:
             Logger.error(f"Patient FindByName Error: {e}")
-            return False, e
+            return False, f"Patient FindByName Error: {e}"
 
     @classmethod
     def find_by_national_code(cls, national_code):
         try:
             patient_list = cls.patient_service.find_by_national_code(national_code)
-            Logger.info(f"Bank FindBy national code {national_code}")
+            Logger.info(f"Patient FindBy national code {national_code}")
             return True, patient_list
         except Exception as e:
-            Logger.error(f"Bank FindBy national code Error: {e}")
-            return False, e
+            Logger.error(f"Patient FindBy national code Error: {e}")
+            return False, f"Patient FindBy national code Error: {e}"
